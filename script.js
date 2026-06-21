@@ -1,3 +1,7 @@
+let totalComplaints = 0;
+let highCount = 0;
+let mediumCount = 0;
+let lowCount = 0;
 document.getElementById("analyzeBtn").addEventListener("click", function () {
 
     let complaintText = document.getElementById("complaint").value.trim().toLowerCase();
@@ -58,6 +62,7 @@ document.getElementById("analyzeBtn").addEventListener("click", function () {
         <p><strong>Priority:</strong> ${priority}</p>
         <p><strong>Recommendation:</strong> ${recommendation}</p>
         `;
+        
     let priorityClass = "";
 
     if (priority === "High") {
@@ -77,5 +82,22 @@ document.getElementById("analyzeBtn").addEventListener("click", function () {
         <td class="${priorityClass}">${priority}</td>
     </tr>
     `;
+
+    totalComplaints++;
+
+    if (priority === "High") {
+        highCount++;
+    }
+    else if (priority === "Medium") {
+        mediumCount++;
+    }
+    else {
+        lowCount++;
+    }
+
+    document.getElementById("totalComplaints").textContent = totalComplaints;
+    document.getElementById("highCount").textContent = highCount;
+    document.getElementById("mediumCount").textContent = mediumCount;
+    document.getElementById("lowCount").textContent = lowCount;
     document.getElementById("tableBody").innerHTML += newRow;
 });
