@@ -1,7 +1,44 @@
+let technicalCount = 0;
+let billingCount = 0;
+let serviceCount = 0;
+let inquiryCount = 0;
+
 let totalComplaints = 0;
 let highCount = 0;
 let mediumCount = 0;
 let lowCount = 0;
+
+let chart;
+
+function updateChart() {
+
+    if (chart) {
+        chart.destroy();
+    }
+
+    const ctx = document.getElementById("complaintChart");
+
+    chart = new Chart(ctx, {
+        type: "pie",
+        data: {
+            labels: [
+                "Technical",
+                "Billing",
+                "Service",
+                "General"
+            ],
+            datasets: [{
+                data: [
+                    technicalCount,
+                    billingCount,
+                    serviceCount,
+                    inquiryCount
+                ]
+            }]
+        }
+    });
+}
+
 document.getElementById("analyzeBtn").addEventListener("click", function () {
 
     let complaintText = document.getElementById("complaint").value.trim().toLowerCase();
@@ -55,6 +92,19 @@ document.getElementById("analyzeBtn").addEventListener("click", function () {
         recommendation = "Provide requested information to the customer.";
     }
 
+    if (category === "Technical Issue") {
+    technicalCount++;
+    }
+    else if (category === "Billing Issue") {
+        billingCount++;
+    }
+    else if (category === "Service Issue") {
+        serviceCount++;
+    }
+    else {
+        inquiryCount++;
+    }
+
     document.getElementById("result").innerHTML =
         `
         <h3>Analysis Result</h3>
@@ -62,7 +112,7 @@ document.getElementById("analyzeBtn").addEventListener("click", function () {
         <p><strong>Priority:</strong> ${priority}</p>
         <p><strong>Recommendation:</strong> ${recommendation}</p>
         `;
-        
+
     let priorityClass = "";
 
     if (priority === "High") {
@@ -100,4 +150,5 @@ document.getElementById("analyzeBtn").addEventListener("click", function () {
     document.getElementById("mediumCount").textContent = mediumCount;
     document.getElementById("lowCount").textContent = lowCount;
     document.getElementById("tableBody").innerHTML += newRow;
+    updateChart();
 });
