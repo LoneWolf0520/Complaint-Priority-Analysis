@@ -23,7 +23,7 @@ const trainingData = [
     { text: "staff behavior was unprofessional", category: "Service Issue" },
 
     { text: "need more information", category: "General Inquiry" },
-    { text: "how can i update my profile", category: "General Inquiry" }
+    { text: "how can i update my profile", category: "General Inquiry" },
 
     { text: "technical support needed for software installation", category: "Technical Issue" },
     { text: "billing discrepancy in my account statement", category: "Billing Issue" },
@@ -51,7 +51,7 @@ const trainingData = [
 
     { text: "website is down and not accessible", category: "Technical Issue" },
     { text: "incorrect billing amount charged to my account", category: "Billing Issue" },
-    
+
     { text: "service representative was rude and unhelpful", category: "Service Issue" },
     { text: "general inquiry regarding company policies and procedures", category: "General Inquiry" }
 ];

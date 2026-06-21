@@ -100,3 +100,32 @@ tr:nth-child(even) {
     margin: 0;
     font-size: 28px;
 }
+
+.analysis-section {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+#result {
+    flex: 2;
+}
+
+.chart-container {
+    flex: 1;
+    max-width: 300px;
+}
+
+#complaintChart {
+    width: 200px !important;
+    height: 200px !important;
+}
+
+.result-card,
+.chart-container {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}

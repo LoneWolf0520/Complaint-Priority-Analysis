@@ -20,6 +20,7 @@ function updateChart() {
 
     chart = new Chart(ctx, {
         type: "pie",
+        responsive: false,
         data: {
             labels: [
                 "Technical",
